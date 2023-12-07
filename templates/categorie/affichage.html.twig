@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ma Boutique.com
+{% endblock %}
+
+{% block body %}
+
+<div
+	class="container">
+	<!-- Article main content -->
+	<article class="col-md-12 maincontent">
+		<div class="container">
+			<div class="row">
+				<h3>{{categorie.titre}}</h3>
+				<hr style="width:100%; height:10px; background-color:#1B4F72 ">
+				<tr>
+					<td>
+						id :
+						{{categorie.id}}
+					</td><br>
+					<td>
+						Noms :
+						{{categorie.titre}}
+					</td><br>
+					<td>
+						Prenoms :
+						{{categorie.resume}}
+					</td><br>
+				</tr>
+
+			</div>
+		</div>
+	</article>
+
+	<div>
+		<br>
+		<br>
+		<a href="{{path('categorie_index')}}" class="btn btn-dark">Liste Categories
+		</a>
+	</div>
+	{% endblock%}

@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Article index
+{% endblock %}
+
+{% block body %}
+
+
+
+
+<div
+	class="container">
+	<!-- Article main content -->
+	<article class="col-md-12 maincontent">
+		<div class="container">
+			<div class="row">
+				<h3>Nos Articles</h3>
+				<hr style="width:100%; height:10px; background-color:#1B4F72 ">
+					
+				{{ form_start(form) }}
+
+				<div class="form-row align-items-end" >
+				<div class="col">
+				{{ form_row(form.titre) }}
+				</div>
+
+				<div class="col">
+				<div class="form-group">
+					<button type="submit" class="btn btn-success">Rechercher</button>
+					</div>
+				</div>
+				</div>
+				{{ form_end(form) }}
+
+
+				<table class="table">
+					<thead>
+						<tr>
+
+							<th>Id</th>
+
+							<th>Image</th>
+							<th>
+								<a href="{{ path('article.titre.asc') }}">
+									Titre
+								</a>
+							</th>
+
+							<th>
+								<a href="{{ path('article.titre.asc') }}">
+									Auteur
+								</a>
+							</th>
+							<th>
+								<a href="{{ path('article.categorie.asc') }}">
+									Categorie
+								</a>
+							</th>
+							<th>
+								<a href="{{ path('article.date.asc') }}">
+									Creation</th>
+							</th>
+							<th>Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</article>
+	<a href="{{ path('article.nouveau') }}" class="btn btn-primary">
+		Ajouter un article
+	</a>
+</div>
+{% endblock%}

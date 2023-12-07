@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ma Boutique EL
+{% endblock %}
+
+{% block body %}
+
+<div class="jumbotron">
+	<article>
+		<h2>
+			Edition utilisateur
+		</h2>
+		<div class="metadata">
+			<p>
+				Dans la Categorie:
+			</p>
+		</div>
+	</article>
+</div>
+
+<div
+	class="container">
+
+	{# {{ form_widget(formUtilisateur) }} #}
+
+	{{ form_start(formUtilisateur) }}
+	{{ form_row(formUtilisateur.noms, {attr: {'placeholder': 'Noms' }}) }}
+	{{ form_row(formUtilisateur.prenoms, {attr: {'placeholder': "Prenoms" }}) }}
+	{{ form_row(formUtilisateur.datenaiss, {attr: {'placeholder': "Date Naiss" }}) }}
+	{{ form_row(formUtilisateur.adresse, {attr: {'placeholder': 'Adresse' }}) }}
+	{{ form_row(formUtilisateur.photo, {attr: {'placeholder': 'Photo' }}) }}
+	{{ form_row(formUtilisateur.email, {attr: {'placeholder': 'Email' }}) }}
+	<button type="submit" class="btn btn-success">
+		Modifier
+	</button>
+	<p></p>
+	<br>
+</br>
+    {{ form_end(formUtilisateur) }}
+</div>
+{% endblock %}

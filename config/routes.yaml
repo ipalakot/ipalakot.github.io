@@ -1,0 +1,62 @@
+# index:
+#    path: /
+#    controller: App\Controller\HomeController::index
+
+index_home:
+  path: /
+  controller: App\Controller\DefaultController::index
+accueil_index:
+  path: /accueil
+  controller: App\Controller\ArticleController::home
+#home:
+#  path: /home
+#  controller: App\Controller\HomeController::index
+apropos_home:
+  path: /apropos
+  controller: App\Controller\DefaultController::aboutus
+liste1:
+  path: /liste/1
+  controller: App\Controller\HomeController::liste
+# #listen:
+#   path: /liste/{liste}      # Je donne de Parametres à ma route
+#   controller: App\Controller\HomeController::listen # La methode et le Controller
+#   defaults:
+#       liste: 0  #par default je mets la liste à 0
+#   requirements:
+#     liste: \d+
+
+#   methods: [GET, POST]
+#   #host: localhost
+#   #schemes: [https,http]
+# #Best Practise
+article:
+  path: /article/{article<\d+>?0} # ici je mets Parametre + Defaults +Requiments
+  controller: App\Controller\HomeController::article # La methode et le Controller
+  # # defaults:
+  # #   liste: 0  #par default je mets la liste à 0
+  # # requirements:
+  #   liste: \d+
+  methods: [GET, POST]
+  #host: localhost
+  #schemes: [https,http]
+name:
+  path: /name
+  controller: App\Controller\HomeController::name
+
+name2:
+  path: /name2/{name}
+  controller: App\Controller\HomeController::name
+
+contact:
+  path: /contact
+  controller: App\Controller\HomeController::contact
+
+test:
+  path: /test
+  controller: App\Controller\PromotionController::test
+connexion:
+  path: /connexion
+  controller: App\Controller\HomeController::connexion
+deconnexion:
+  path: /deconexion
+  controller: App\Controller\HomeController::deconnexion

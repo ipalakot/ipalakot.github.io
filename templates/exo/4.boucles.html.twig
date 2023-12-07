@@ -1,0 +1,35 @@
+
+{# BOUCLES // La boucle FOR: {% for … %} {% endfor %}#}
+
+    {% for i in 0..9 %}  
+       {{ i }}
+    {% endfor %} <br> <br>
+
+    {# % for produit in produits % #}
+       {#{ produit.nom }#}
+    {#% endfor % #}
+<br><br>
+
+
+--- <h3> liste des Etduiants dans la salle </h3><br>
+{% set collection = ['El Amrani Bilel',  'Lebon Ludovic', 'Martin Vincent', 'Ouanyou Dje Arsène', 'Vonin Cédric'] %}
+            <ul>
+                {% for item in collection %}
+                    <li>{{ item }}</li>
+                {% endfor %}
+            </ul>
+<br><br>
+---<h3> boucle for avec condition vide:<br>  
+{#    
+{% for article in articles %}
+        {{ article.nom }}
+    {% else %}
+        pas d'article trouvé
+    {% endfor %} #}
+
+---<h3> boucle for avec clés et valeurs:<br> 
+{#
+    {% for key, value in table %}
+       {{ key }} {{ value }}
+    {% endfor %} 
+#}

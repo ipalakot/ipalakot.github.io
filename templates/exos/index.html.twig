@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} DWWM2 {% endblock %}
+
+{% block body %}
+   
+{% set collection = ['El Amrani Bilel',   
+                        'Lebon Ludovic', 
+                        'Martin Vincent', 
+                        'Ouanyou Dje Arsène', 
+                        'Vonin Cédric'] 
+%}
+
+            <ul>
+                {% for stagiaire in collection %}
+                    <li>{{ stagiaire }}</li>
+                {% endfor %}
+            </ul>
+²
+{# Mon commentaire #}, 
+
+
+{% endblock %}

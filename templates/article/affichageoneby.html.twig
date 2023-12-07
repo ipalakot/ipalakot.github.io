@@ -1,0 +1,122 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Article index
+{% endblock %}
+
+{% block body %}
+
+<div
+	class="container">
+	<!-- Article main content -->
+	<article class="col-md-12 maincontent">
+		<div class="container">
+			<div class="row">
+				<h3>{#{ article.categorie.titre }#}
+					/
+					{#{ article.titre }#}</h3>
+				<hr style="width:100%; height:10px; background-color:#1B4F72 ">
+
+				<div
+					class="container">
+					<!-- Article Principal -->
+					<tr>
+						<th>Id :</th>
+						<td>{{ articles.id }}</td>
+					</tr>
+					<br><br>
+
+					<tr>
+						<th>
+							Titre :</th>
+						<td>{{ article.titre }}</td>
+						<br><br>
+					</tr>
+
+					<tr>
+						<th>Categories :</th>
+						<td>{{ article.categorie.titre }}</td>
+					</tr><br><br>
+
+					<tr>
+						<th>Auteurs :</th>
+						<td>{{ article.auteur.noms }}</td>
+					</tr><br><br>
+
+					<tr>
+						<th></th>Resume :</tr>
+				</th>
+				<td>{{ article.resume|raw}}</td>
+			</tr><br><br>
+
+			<tr>
+				<th>Contenu</th>
+				<td>{{ article.contenu|raw }}</td>
+			</tr><br><br>
+
+			<tr>
+				<th>Date</th>
+				<td>{{ article.createdAt ? article.createdAt|date('Y-m-d') : '' }}</td>
+			</tr>
+			<br><br>
+
+			<!-- Affichage des Commentaires -->
+
+			<div>
+				<hr size="4" color="blue">
+				<h5></h5>
+
+
+				{% for commentaire in article.commentaires %}
+					<div class="comment">
+						<div class="row">
+							<hr style="width:100%; height:1px; background-color:#1B4F72 ">
+							<div class="col3">
+								<h5>
+									{{ commentaire.auteur }}
+								</h5>
+							</div>
+							<div class="col">
+								{{ commentaire.contenu |raw }}
+							</div>
+							<br>
+
+						{% else %}
+							<div>
+								<h5>
+									Aucun avis pour le moment sur cet article !
+								</h5>
+							</div>
+
+
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+
+			<!-- Affichage du Formulaire de Commentaire -->
+
+			<div container>
+				<br><br>
+				<h5>
+					Laissez votre Commentaire ici
+				</h5>
+				{#{ form_start(commentaireForm) }#}
+				{#{ form_widget(commentaireForm) }#}
+				{# <button class="btn btn-primary">{{ button_label|default('Enregistrez') }}</button><br><br>
+				{#{ form_end(commentaireForm)}#}
+
+
+			</div>
+
+			<br><br>
+
+
+			<br><br>
+
+
+		</div>
+
+
+	</div>
+	<a href="{{path('article_index')}}" class="btn btn-dark">Liste articles</a>
+</div></article></div>{% endblock%}

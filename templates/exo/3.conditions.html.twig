@@ -1,0 +1,35 @@
+{# CONDITIONS #}
+--- IF--- <br>
+    {% set etudiant = 'MARWANN ' %}
+        {% if etudiant is not empty %}
+            Bienvenue à : {{ etudiant}}
+    {% endif %}  
+    
+    <br><br>
+
+    {% if 'CRP' starts with 'p' %}
+            commence par CRP
+    {% endif %} <br><br>
+
+<br>
+    {% if 5 not in [1, 2, 3] %}
+       5 non présent
+    {% endif %} <br><br>
+
+--- IF ELSE--- <br>
+    {% set etudiant = 'MARWANN ' %}
+        {% if etudiant is not empty %}
+            Etudiant: {{ etudiant}} Non trouvé
+        {% else %}
+                Bienvenue à : {{ etudiant}}
+    {% endif %}  <br><br>
+
+        {% if 'El Amrani Bilel' in ['El Amrani Bilel',  'Lebon Ludovic', 'Martin Vincent', 'Ouanyou Dje Arsène', 'Vonin Cédric'] %}
+             Est Prsent dans la liste
+        {% endif %} <br>
+
+--- regular expressions: {#
+    {% if phone matches '/^[\\d\\.]+$/' %}
+       format telephone ok
+    {% endif %} #}
+

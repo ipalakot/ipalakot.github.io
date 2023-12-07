@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello UtilisateurController!
+{% endblock %}
+
+{% block body %}
+
+<div
+	class="container">
+	<!-- Article main content -->
+	<article class="col-md-12 maincontent">
+		<div class="container">
+			<div class="row">
+				<h3>Les Abonnes</h3>
+				<hr style="width:100%; height:10px; background-color:#1B4F72 ">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Id</th>
+
+							<th>
+								<a href="{{ path('utilisateur.lname.asc') }}">
+									Noms
+								</a>
+							</th>
+							<th>
+								<a href="{{ path('utilisateur.fname.asc') }}">
+									Prenoms
+								</a>
+							</th>
+
+							<th>
+								<a href="{{ path('utilisateur.date.asc') }}">
+
+									DateNaiss</a>
+							</th>
+
+							<th>Action</th>
+						</tr>
+					</thead>
+
+					<tbody>
+						{% for utilisateur in utilisateurs %}
+							<tr>
+								<td>
+
+									{{utilisateur.id}}
+
+								</td>
+								<td>
+									<a href="{{ path('utilisateur_affiche', {'id': utilisateur.id}) }}">
+										{{utilisateur.noms}}
+									</a>
+								</td>
+
+								<td>
+									{{utilisateur.prenoms}}
+								</td>
+								<td>
+									{{utilisateur.datenaiss | date('d/m/Y')}}
+								</td>
+								<td>
+									<a href="{{ path('utilisateur.edit', {'id': utilisateur.id}) }}">editer ||</a>
+									<a href="##">Supprime |</a>
+								</td>
+
+							</tr>
+
+						{% endfor %}
+
+					</tbody>
+				</table>
+
+			</div>
+		</div>
+	</article>
+	<a href="{{ path('utilisateur.nouv') }}" class="btn btn-primary">Ajouter Un Auteur</a>
+</div>
+{% endblock%}

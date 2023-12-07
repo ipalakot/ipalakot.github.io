@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello UtilisateurController!
+{% endblock %}
+
+{% block body %}
+
+<div
+	class="container">
+	<!-- Article main content -->
+	<article class="col-md-12 maincontent">
+		<div class="container">
+			<div class="row">
+				<h3>Nos Auteurs</h3>
+				<hr style="width:100%; height:10px; background-color:#1B4F72 ">
+
+				<table class="table">
+
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>Noms</th>
+							<th>Prenoms</th>
+							<th>Email</th>
+						</tr>
+					</thead>
+
+					<tbody>
+						{% for auteur in auteurs %}
+							<tr>
+								<td>
+									{{auteur.id}}
+								</td>
+								<td>
+									<a href="{{ path('auteur.affichage', {'id': auteur.id}) }}">
+										{{auteur.noms}}
+									</a>
+								</td>
+
+								<td>
+									<a href="{{ path('auteur.affichage', {'id': auteur.id}) }}">
+										{{auteur.prenoms}}
+									</a>
+								</td>
+								<td>
+									{{auteur.email}}
+								</td>
+
+							{% else %}
+								<tr>
+									<td colspan="5">Aucun Auteur pour le moment !</td>
+								</tr>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+
+
+			</div>
+		</div>
+	</article>
+		<a href="{{ path('auteur.nouveau') }}" class="btn btn-primary">
+			Ajouter Un Auteur
+		</a>
+	{% endblock%}

@@ -1,0 +1,23 @@
+{#
+    On peut appliquer des filtres sur une variable à afficher, 
+    sur une variable d'une condition IF ou d'une boucle FOR… 
+#}
+
+
+
+Le filtre length
+
+
+
+{# Afichage avec des filtre #}
+{# | raw #}
+
+{% autoescape %}
+{% set text = "omme vous pouvez le constater, ce nouveau filtre ne fait rien, la différence ce situe au niveau de sa déclaration. L'option 'is_safe' => 'html' permet d'indiquer à Twig de ne pas échapper le html en sortie du filtre.
+
+Cette options peut prendre les valeurs html, js, css, html_attr, url ou all afin de contrôler ce qui sera échappé ou non.
+
+Si nécessaire, vous pouvez également utiliser l'option pre_escape pour gérer l'échappement en entrée du filtre."%}
+
+    {{ text|raw }} {# var won't be escaped #}
+{% endautoescape %}

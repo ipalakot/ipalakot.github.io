@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Registration {% endblock %}
+
+{% block body %}
+
+		<h5>
+			Enregistrement sur le Site
+		</h5>
+<hr style="width:100%; height:10px; background-color:#1B4F72 ">
+
+
+{{ form_start(form) }}
+		
+		{{ form_row(form.username,{'label': 'Nom utilisateur', 'attr':{'placeholder': 'Nom Utilisateur....'}}) }}
+		{{ form_row(form.email,{'label': 'Email', 'attr':{'placeholder': 'Email Utilisateur....'}}) }}
+		{{ form_row(form.password,{'label': 'Mot de passe', 'attr':{'placeholder': 'Le mot de place....'}}) }}
+		{{ form_row(form.confirm_password,{'label': 'Confirmation Mot de passe', 'attr':{'placeholder': 'Mot de passe Utilisateur....'}}) }}		
+		
+		
+			<button type="submit" class="btn btn-success"> Insciption ! </button>
+		{{ form_end(form) }}
+{% endblock %}

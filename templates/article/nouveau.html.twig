@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme formArticle 'bootstrap_4_layout.html.twig' %}
+
+
+{% block title %}MaBoutikELyyo
+{% endblock %}
+
+
+{% block body %}
+
+
+	<article>
+		<h4>
+			Enregistrement Article
+		</h4>
+
+	</article>
+	<hr style="width:100%; height:10px; background-color:#1B4F72 ">
+
+
+	<div class="jumbotron"></div>
+	<div class="container">
+
+		{{ form_start(formArticle, {'attr': {'novalidate': 'novalidate'}}) }}
+
+		{{ form_errors(formArticle) }}
+
+		{{ form_row(formArticle.titre) }}
+		{{ form_row(formArticle.auteur) }}
+		{{ form_row(formArticle.categorie) }}
+		{{ form_row(formArticle.images) }}
+		{{ form_row(formArticle.resume) }}
+		{{ form_row(formArticle.contenu) }}
+		{{ form_row(formArticle.localite) }}
+		{{ form_row(formArticle.prix) }}
+		{{ form_row(formArticle.disponibilite) }}
+		{{ form_row(formArticle.une) }}
+		{{ form_row(formArticle.createdAt) }}
+
+		<br>
+
+
+		<button type="submit" class="btn btn-success">
+			Ajouter</button>
+		{{ form_end(formArticle) }}
+	</div>
+
+
+{% endblock %}

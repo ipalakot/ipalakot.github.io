@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello UtilisateurController!
+{% endblock %}
+
+{% block body %}
+
+<div
+	class="container">
+	<!-- Article main content -->
+	<article class="col-md-12 maincontent">
+		<div class="container">
+			<div class="row">
+				<h3>{{utilisateur.noms}}</h3>
+				<hr style="width:100%; height:10px; background-color:#1B4F72 ">
+				<tr>
+					<td>
+						id :
+						{{utilisateur.id}}
+					</td><br>
+					<td>
+						Noms :
+						{{utilisateur.noms}}
+					</td><br>
+					<td>
+						Prenoms :
+						{{utilisateur.prenoms}}
+
+					</td><br>
+					<td>
+						Date Naiss :
+						{{utilisateur.datenaiss|date('Y-m-d H:i:s') }}
+					</td><br>
+					<td>
+						Adresse :
+						{{utilisateur.adresse}}
+					</td><br>
+					<td>
+						Photo :
+						<img src="{{ vich_uploader_asset(utilisateur, 'imageFile') }}" class="col-md-6 float-md-end mb-3 ms-md-3" alt="...">
+
+					</td><br>
+					<td>
+						Email :
+						{{utilisateur.email}}
+					</td><br>
+				</tr>
+
+			</div>
+		</div>
+	</article>
+
+composer require vich/uploader-bundle
+
+
+
+	<div>
+		<br>
+		<br>
+		<a href="{{path('utilisateur_index')}}" class="btn btn-dark">Liste Utilisateurs
+		</a>
+	</div>
+	{% endblock%}

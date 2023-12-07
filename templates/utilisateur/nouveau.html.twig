@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme formUtilisateur 'bootstrap_4_layout.html.twig' %}
+
+{% block title %}MaBoutikELyyo
+{% endblock %}
+
+
+{% block body %}
+
+	<article>
+		<h4>
+			Enregistrement Utilisateur
+		</h4>
+
+	</article>
+	<hr style="width:100%; height:10px; background-color:#1B4F72 ">
+
+
+	<div class="jumbotron"></div>
+	<div class="container">
+
+		{{ form_start(formUtilisateur, {'attr': {'novalidate': 'novalidate'}}) }}
+
+		{{ form_errors(formUtilisateur) }}
+
+		{{ form_row(formUtilisateur.noms) }}
+		{{ form_row(formUtilisateur.prenoms) }}
+		{{ form_row(formUtilisateur.username) }}
+		{{ form_row(formUtilisateur.imageFile) }}
+		{{ form_row(formUtilisateur.datenaiss) }}
+		{{ form_row(formUtilisateur.adresse) }}
+		{{ form_row(formUtilisateur.photo) }}
+		{{ form_row(formUtilisateur.email) }}
+		{{ form_row(formUtilisateur.nationalite) }}
+
+
+		<br><br>
+		<button type="submit" class="btn btn-success">
+			Ajouter</button>
+		{{ form_end(formUtilisateur) }}
+	</div>
+{% endblock %}

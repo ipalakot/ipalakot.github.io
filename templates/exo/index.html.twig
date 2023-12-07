@@ -1,0 +1,66 @@
+https://twig.symfony.com/
+
+
+{# Utilisation de la commande {{ }} #}
+<h2>
+    {{ 'Affichage des des etudiants' }} <br>
+    {{ 1000 }}
+  
+</h2>
+
+<br><br>
+{% set data = 'Developpeur 2023' %}                                    
+{{ data }} <br><br>
+
+
+{# Utilisation de la commande {% %} #}
+{% set collection = ['El Amrani Bilel',  'Lebon Ludovic', 'Martin Vincent', 'Ouanyou Dje Arsène', 'Vonin Cédric'] %}
+
+            <ul>
+                {% for item in collection %}
+                    <li>{{ item }}</li>
+                {% endfor %}
+            </ul>
+
+{% set stage1, stage2 = 'Khalil', 'Marwan' %}
+
+<br><br>
+  {% set tableau=[1, 2, 3] %}
+  {{ tableau[0] }}
+
+  <br><br>
+
+
+{# CONDITIONS #}
+        {% set etudiant = 'MARWANN ' %}
+            {% if etudiant is not empty %}
+                Bienvenue à : {{ etudiant}}
+        {% endif %}  
+
+            <<br>
+        {% if 'CRP' starts with 'C' %}
+            commence par CRP
+        {% endif %}
+
+        <br>
+        {% if 'El Amrani Bilel' in ['El Amrani Bilel',  'Lebon Ludovic', 'Martin Vincent', 'Ouanyou Dje Arsène', 'Vonin Cédric'] %}
+             Est Prsent dans la liste
+
+        {% endif %} <br>
+
+
+{# BOUCLES // La boucle FOR: {% for … %} {% endfor %}#}
+
+    {% for i in 0..9 %}  
+       {{ i }}
+    {% endfor %} <br> <br>
+
+    {# % for produit in produits % #}
+       {#{ produit.nom }#}
+    {#% endfor % #}
+<br><br>
+
+{# Les fonctions #}
+        {% set tab = [1, 5, 2, 3] %}
+        {{ max(tab) }}   <br>
+        {{ dump(tab) }}             

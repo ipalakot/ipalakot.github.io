@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Article index
+{% endblock %}
+
+{% block body %}
+
+<div
+	class="container">
+	<!-- Article main content -->
+	<article class="col-md-12 maincontent">
+		<div class="container">
+			<div class="row">
+				<h3>Nos Articles</h3>
+				<hr style="width:100%; height:10px; background-color:#1B4F72 ">
+
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>Titre</th>
+							<th>Auteur</th>
+							<th>Categorie</th>
+							<th>Creation</th>
+							<th>Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for article in articles %}
+							<tr>
+								<td>{{ article.id }}</td>
+								<td>
+									<a href="{{ path('article.affichage', {'id': article.id}) }}">
+										{{ article.titre }}
+									</a>
+								</td>
+								<td>{{ article.auteur.noms }}
+								</td>
+								{#<td>  {{ article.auteur.prenoms}}</td>#}
+								<td>{{ article.categorie.titre }}</td>
+								<td>
+									{{ article.createdAt | date('d/m/Y') }}
+								</td>
+								<td>
+									<a href="{{ path('article.edit', {'id': article.id}) }}">editer |</a>
+								</td>
+
+							{% else %}
+								<tr>
+									<td colspan="5">Aucun article pour lemoment !</td>
+								</tr>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</article>
+	<a href="{{ path('article.nouveau') }}" class="btn btn-primary">
+		Ajouter un article
+	</a>
+</div>
+{% endblock%}

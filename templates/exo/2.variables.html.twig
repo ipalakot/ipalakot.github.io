@@ -1,0 +1,31 @@
+
+{# Les variables #}
+
+{% set pi = 3.14 %}
+Le nombre PI = {{ pi }}
+
+<br><br>
+
+<br><br>
+{% set data = 'Developpeur 2023' %}                                    
+{{ data }} <br><br>
+
+
+{# Declaration de Tab #}
+    {% set tableau=[1, 2, 3] %}
+
+{# Tableau avec Key
+    {% set tableau={key1:"value1", key2:"value2"} %} 
+#}
+
+{# tableau avec valeur et clé:#}
+    {% set tab = [3, {"mot": "Vacances"}] %}
+    {{ tab[1]['mot'] }} {# afficher le contenu de 'mot' donc 'vacances':#}
+
+{# déclarer 2 variables en même temps // jour1='lundi'   // jour2='mardi' #}
+    {% set jour1, jour2 = 'lundi', 'mardi' %}
+
+{# NB:
+    [ … ] un tableau avec une série de valeurs.
+    { … } un tableau avec des couples clé/valeur.
+#}
